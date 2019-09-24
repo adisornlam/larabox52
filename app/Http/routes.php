@@ -26,3 +26,7 @@ Route::group(['prefix'=>'admin','middleware' => 'auth'], function () {
         // Uses Auth Middleware
     });
 });
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
