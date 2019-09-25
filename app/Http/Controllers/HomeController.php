@@ -27,4 +27,9 @@ class HomeController extends Controller
         // $request->user()->authorizeRoles(['administrator', 'phetchaburi']);
         return view('home');
     }
+
+    public function phpinfo()
+    {
+        return phpinfo();
+    }
 }
