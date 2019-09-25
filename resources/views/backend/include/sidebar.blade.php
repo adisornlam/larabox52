@@ -27,7 +27,7 @@
                 </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="#"><i class="fa fa-user"></i> Users</a></li>
+            <li><a href="{{url('admin/users')}}"><i class="fa fa-user"></i> Users</a></li>
               <li><a href="#"><i class="fa fa-key"></i> Roles</a></li>
             </ul>
           </li>

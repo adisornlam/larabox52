@@ -22,9 +22,7 @@ Route::auth();
 
 Route::group(['prefix'=>'admin','middleware' => 'auth'], function () {
     Route::get('/', 'Backend\DashboardController@index');
-    Route::get('/users', function ()    {
-        // Uses Auth Middleware
-    });
+    Route::resource('/users','Backend\UserController');
     Route::get('/phpinfo', 'HomeController@phpinfo');
 });
 
