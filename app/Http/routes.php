@@ -21,10 +21,11 @@ Route::get('/phpinfo', function () {
 Route::auth();
 
 Route::group(['prefix'=>'admin','middleware' => 'auth'], function () {
-    Route::get('/', 'HomeController@index');
+    Route::get('/', 'Backend\DashboardController@index');
     Route::get('/users', function ()    {
         // Uses Auth Middleware
     });
+    Route::get('/phpinfo', 'HomeController@phpinfo');
 });
 
 Route::auth();
