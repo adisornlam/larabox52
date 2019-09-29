@@ -5,12 +5,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        User
+        Roles
         <small>Optional description</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li class="active">User</li>
+        <li class="active">Roles</li>
       </ol>
     </section>
 
@@ -20,7 +20,7 @@
         <div class="col-md-12">
             <div class="box">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Users List</h3>
+                  <h3 class="box-title">Role List</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -28,20 +28,18 @@
                     <tr>
                       <th style="width: 10px">#</th>
                       <th>Name</th>
-                      <th>Email</th>
-                      <th>Role</th>
+                      <th>Description</th>
                       <th style="width: 200px">Action</th>
                     </tr>
-                    @foreach ($users as $user)
+                    @foreach ($roles as $role)
                     <tr>
                       <td>{{ ++$i }}</td>
-                      <td>{{ $user->name}}</td>
-                      <td>{{ $user->email}}</td>
-                    <td>{{$user->roles->first()->description}}</td>
+                      <td>{{ $role->name}}</td>
+                      <td>{{ $role->description}}</td>
                       <td>
-                          <a class="btn btn-info" href="{{ route('admin.users.show',$user->id) }}">Show</a>
-                          <a class="btn btn-primary" href="{{ route('admin.users.edit',$user->id) }}">Edit</a>
-                          {!! Form::open(['method' => 'DELETE','route' => ['admin.users.destroy', $user->id],'style'=>'display:inline']) !!}
+                          <a class="btn btn-info" href="{{ route('admin.roles.show',$role->id) }}">Show</a>
+                          <a class="btn btn-primary" href="{{ route('admin.roles.edit',$role->id) }}">Edit</a>
+                          {!! Form::open(['method' => 'DELETE','route' => ['admin.roles.destroy', $role->id],'style'=>'display:inline']) !!}
                           {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                           {!! Form::close() !!}
                       </td>
@@ -51,7 +49,7 @@
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer clearfix">
-                    {!! $users->render() !!}
+                    {!! $roles->render() !!}
                 </div>
               </div>
         </div>

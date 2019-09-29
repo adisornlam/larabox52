@@ -23,7 +23,9 @@ Route::auth();
 Route::group(['prefix'=>'admin','middleware' => 'auth'], function () {
     Route::get('/', 'Backend\DashboardController@index');
     Route::resource('/users','Backend\UserController');
-    Route::get('/phpinfo', 'HomeController@phpinfo');
+    Route::resource('/roles','Backend\RoleController');
+    Route::resource('/contents','Backend\ContentController');
+    Route::resource('/photoslide','Backend\PhotoSlideController');
 });
 
 Route::auth();
