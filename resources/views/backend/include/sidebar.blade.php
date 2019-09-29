@@ -18,7 +18,7 @@
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu" data-widget="tree">
           <!-- Optionally, you can add icons to the links -->
-          <li class="active"><a href="#"><i class="fa fa-home"></i> <span>Home</span></a></li>
+          <li><a href="#"><i class="fa fa-home"></i> <span>Home</span></a></li>
           <li class="treeview">
             <a href="#"><i class="fa fa-list"></i> <span>Content</span>
               <span class="pull-right-container">
