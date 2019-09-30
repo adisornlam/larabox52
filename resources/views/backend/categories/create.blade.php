@@ -24,7 +24,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" method="POST" action="/admin/category">
+            <form class="form-horizontal" method="POST" action="{{route('admin.category.store')}}">
               {!! csrf_field() !!}
               <div class="box-body">
                 <div class="form-group">

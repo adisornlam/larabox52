@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Model\Content;
+use App\Model\Category;
 
 class NewsController extends Controller
 {
@@ -33,7 +34,8 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('backend.news.create');
+        $categories = Category::all();
+        return view('backend.news.create',compact('categories'));
     }
 
     /**
