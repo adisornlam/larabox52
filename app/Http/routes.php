@@ -24,7 +24,8 @@ Route::group(['prefix'=>'admin','middleware' => 'auth'], function () {
     Route::get('/', 'Backend\DashboardController@index');
     Route::resource('/users','Backend\UserController');
     Route::resource('/roles','Backend\RoleController');
-    Route::resource('/contents','Backend\ContentController');
+    Route::resource('/news','Backend\NewsController');
+    Route::resource('/category','Backend\CategoryController');
     Route::resource('/photoslide','Backend\PhotoSlideController');
 });
 

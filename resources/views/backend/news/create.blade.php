@@ -9,7 +9,7 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="/admin"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li><a href="admin/contents"><i class="fa fa-dashboard"></i>Content</a></li>
+        <li><a href="/admin/news"><i class="fa fa-dashboard"></i>News</a></li>
         <li class="active">Add</li>
       </ol>
     </section>

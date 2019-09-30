@@ -26,7 +26,7 @@
                 </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="{{url('admin/contents')}}"><i class="fa fa-user"></i> Content</a></li>
+              <li><a href="{{url('admin/news')}}"><i class="fa fa-list-alt"></i> News</a></li>
               <li><a href="{{url('admin/category')}}"><i class="fa fa-list"></i> Category</a></li>
             </ul>
           </li>
