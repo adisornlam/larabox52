@@ -5,12 +5,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        User
-        <small>Optional description</small>
+        News
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li class="active">User</li>
+        <li><a href="/admin"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li class="active">News</li>
       </ol>
     </section>
 
@@ -20,7 +19,10 @@
         <div class="col-md-12">
             <div class="box">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Users List</h3>
+                  <h3 class="box-title">News List</h3>
+                  <div class="box-tools">
+                    <a href="{{url('/admin/news/create')}}" class="btn btn-primary btn-sm" role="button"><i class="fa fa-plus" aria-hidden="true"></i> Add</a>
+                  </div>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -28,20 +30,20 @@
                     <tr>
                       <th style="width: 10px">#</th>
                       <th>Name</th>
-                      <th>Email</th>
-                      <th>Role</th>
+                      <th>Category</th>
+                      <th>Active</th>
                       <th style="width: 200px">Action</th>
                     </tr>
-                    @foreach ($users as $user)
+                    @foreach ($news as $content)
                     <tr>
                       <td>{{ ++$i }}</td>
-                      <td>{{ $user->name}}</td>
-                      <td>{{ $user->email}}</td>
-                    <td>{{$user->roles->first()->description}}</td>
+                      <td>{{ $content->name}}</td>
+                      <td>{{ $content->categories->name}}</td>
+                    <td>{{$content->active}}</td>
                       <td>
-                          <a class="btn btn-info" href="{{ route('admin.users.show',$user->id) }}">Show</a>
-                          <a class="btn btn-primary" href="{{ route('admin.users.edit',$user->id) }}">Edit</a>
-                          {!! Form::open(['method' => 'DELETE','route' => ['admin.users.destroy', $user->id],'style'=>'display:inline']) !!}
+                          <a class="btn btn-info" href="{{ route('admin.news.show',$content->id) }}">Show</a>
+                          <a class="btn btn-primary" href="{{ route('admin.news.edit',$content->id) }}">Edit</a>
+                          {!! Form::open(['method' => 'DELETE','route' => ['admin.news.destroy', $content->id],'style'=>'display:inline']) !!}
                           {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                           {!! Form::close() !!}
                       </td>
@@ -51,7 +53,7 @@
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer clearfix">
-                    {!! $users->render() !!}
+                    {!! $news->render() !!}
                 </div>
               </div>
         </div>

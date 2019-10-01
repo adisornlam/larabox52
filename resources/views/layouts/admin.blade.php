@@ -7,26 +7,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   @include('backend.include.head')
 </head>
-<!--
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to get the
-desired effect
-|---------------------------------------------------------|
-| SKINS         | skin-blue                               |
-|               | skin-black                              |
-|               | skin-purple                             |
-|               | skin-yellow                             |
-|               | skin-red                                |
-|               | skin-green                              |
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | fixed                                   |
-|               | layout-boxed                            |
-|               | layout-top-nav                          |
-|               | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------|
--->
 <body class="hold-transition skin-blue-light sidebar-mini">
 <div class="wrapper">
 
@@ -53,8 +33,7 @@ desired effect
 <!-- AdminLTE App -->
 <script src="{{ asset("/bower_components/admin-lte/dist/js/adminlte.min.js") }}"></script>
 
-<!-- Optionally, you can add Slimscroll and FastClick plugins.
-     Both of these plugins are recommended to enhance the
-     user experience. -->
+@yield('scripts')
+@yield('script')
 </body>
 </html>

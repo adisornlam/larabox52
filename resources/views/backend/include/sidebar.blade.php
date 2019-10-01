@@ -18,8 +18,28 @@
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu" data-widget="tree">
           <!-- Optionally, you can add icons to the links -->
-          <li class="active"><a href="#"><i class="fa fa-home"></i> <span>Home</span></a></li>
-          <li><a href="#"><i class="fa fa-list"></i> <span>Content</span></a></li>
+          <li><a href="#"><i class="fa fa-home"></i> <span>Home</span></a></li>
+          <li class="treeview">
+            <a href="#"><i class="fa fa-list"></i> <span>Content</span>
+              <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="{{url('admin/news')}}"><i class="fa fa-list-alt"></i> News</a></li>
+              <li><a href="{{url('admin/category')}}"><i class="fa fa-list"></i> Category</a></li>
+            </ul>
+          </li>
+          <li class="treeview">
+              <a href="#"><i class="fa fa-picture-o"></i> <span>Photo Slide</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                  </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{{url('admin/photoslide')}}"><i class="fa fa-key"></i> Photo Slide</a></li>
+              </ul>
+            </li>
           <li class="treeview">
             <a href="#"><i class="fa fa-cog"></i> <span>Settings</span>
               <span class="pull-right-container">
@@ -28,7 +48,7 @@
             </a>
             <ul class="treeview-menu">
             <li><a href="{{url('admin/users')}}"><i class="fa fa-user"></i> Users</a></li>
-              <li><a href="#"><i class="fa fa-key"></i> Roles</a></li>
+            <li><a href="{{url('admin/roles')}}"><i class="fa fa-key"></i> Roles</a></li>
             </ul>
           </li>
         </ul>

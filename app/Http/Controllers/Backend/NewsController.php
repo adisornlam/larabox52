@@ -5,9 +5,10 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Model\User;
+use App\Model\Content;
+use App\Model\Category;
 
-class UserController extends Controller
+class NewsController extends Controller
 {
     public function __construct()
     {
@@ -20,9 +21,9 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $request->user()->authorizeRoles(['administrator']);
-        $users = User::with('roles')->orderBy('id','DESC')->paginate(20);
-        return view('backend.users.index',compact('users'))
+        // $request->user()->authorizeRoles(['administrator']);
+        $news = Content::with('categories')->orderBy('id','DESC')->paginate(20);
+        return view('backend.news.index',compact('news'))
             ->with('i', ($request->input('page', 1) - 1) * 20);
     }
 
@@ -33,7 +34,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('backend.users.create');
+        $categories = Category::all();
+        return view('backend.news.create',compact('categories'));
     }
 
     /**
@@ -45,13 +47,11 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required'
+            'name' => 'required'
         ]);
-        User::create($request->all());
-        return redirect()->route('backend.users.index')
-                        ->with('success','User created successfully');
+        Content::create($request->all());
+        return redirect()->route('backend.news.index')
+                        ->with('success','Content created successfully');
     }
 
     /**
@@ -62,8 +62,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
-        return view('backend.users.show',compact('user'));
+        $content = Content::find($id);
+        return view('backend.news.show',compact('content'));
     }
 
     /**
@@ -74,8 +74,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = User::find($id);
-        return view('backend.users.edit',compact('user'));
+        $content = Content::find($id);
+        return view('backend.news.edit',compact('content'));
     }
 
     /**
@@ -91,10 +91,10 @@ class UserController extends Controller
             'name' => 'required',
         ]);
 
-        User::find($id)->update($request->all());
+        Content::find($id)->update($request->all());
 
-        return redirect()->route('backend.users.index')
-                        ->with('success','User updated successfully');
+        return redirect()->route('backend.news.index')
+                        ->with('success','Content updated successfully');
     }
 
     /**
@@ -105,8 +105,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        User::find($id)->delete();
-        return redirect()->route('backend.users.index')
-                        ->with('success','User deleted successfully');
+        Content::find($id)->delete();
+        return redirect()->route('backend.news.index')
+                        ->with('success','Content deleted successfully');
     }
 }

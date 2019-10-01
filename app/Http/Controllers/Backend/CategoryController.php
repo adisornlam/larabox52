@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Model\User;
+use App\Model\Category;
 
-class UserController extends Controller
+class CategoryController extends Controller
 {
     public function __construct()
     {
@@ -20,9 +20,9 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $request->user()->authorizeRoles(['administrator']);
-        $users = User::with('roles')->orderBy('id','DESC')->paginate(20);
-        return view('backend.users.index',compact('users'))
+        // $request->user()->authorizeRoles(['administrator']);
+        $categories = Category::latest('id')->paginate(20);
+        return view('backend.categories.index',compact('categories'))
             ->with('i', ($request->input('page', 1) - 1) * 20);
     }
 
@@ -33,7 +33,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('backend.users.create');
+        return view('backend.categories.create');
     }
 
     /**
@@ -45,13 +45,11 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required'
+            'name' => 'required'
         ]);
-        User::create($request->all());
-        return redirect()->route('backend.users.index')
-                        ->with('success','User created successfully');
+        Category::create($request->all());
+        return redirect()->route('admin.category.index')
+                        ->with('success','Category created successfully');
     }
 
     /**
@@ -62,8 +60,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
-        return view('backend.users.show',compact('user'));
+        $category = Category::find($id);
+        return view('backend.categories.show',compact('category'));
     }
 
     /**
@@ -74,8 +72,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = User::find($id);
-        return view('backend.users.edit',compact('user'));
+        $category = Category::find($id);
+        return view('backend.categories.edit',compact('category'));
     }
 
     /**
@@ -91,10 +89,10 @@ class UserController extends Controller
             'name' => 'required',
         ]);
 
-        User::find($id)->update($request->all());
+        Category::find($id)->update($request->all());
 
-        return redirect()->route('backend.users.index')
-                        ->with('success','User updated successfully');
+        return redirect()->route('admin.category.index')
+                        ->with('success','Category updated successfully');
     }
 
     /**
@@ -105,8 +103,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        User::find($id)->delete();
-        return redirect()->route('backend.users.index')
-                        ->with('success','User deleted successfully');
+        Category::find($id)->delete();
+        return redirect()->route('admin.category.index')
+                        ->with('success','Category deleted successfully');
     }
 }
