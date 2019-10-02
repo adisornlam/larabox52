@@ -5,12 +5,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Category Show
+        รายละเอียดหมวดหมู่
       </h1>
       <ol class="breadcrumb">
-        <li><a href="/admin"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li><a href="/admin/categories"><i class="fa fa-dashboard"></i>Category</a></li>
-        <li class="active">Show</li>
+        <li><a href="/admin"><i class="fa fa-dashboard"></i> แผงควบคุม</a></li>
+        <li><a href="/admin/categories"><i class="fa fa-dashboard"></i>หมวดหมู่</a></li>
+        <li class="active">แสดง</li>
       </ol>
     </section>
 
@@ -27,7 +27,7 @@
             <form class="form-horizontal">
               <div class="box-body">
                 <div class="form-group">
-                  <label for="name" class="col-sm-2 control-label">Title</label>
+                  <label for="name" class="col-sm-2 control-label">หัวข้อ</label>
                   <div class="col-sm-6">
                     <p class="form-control-static">{{ @$category->name}}</p>
                   </div>

@@ -5,12 +5,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Content Add
+        เพิ่มข้อมูลข่าวสาร
       </h1>
       <ol class="breadcrumb">
-        <li><a href="/admin"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li><a href="/admin/news"><i class="fa fa-dashboard"></i>News</a></li>
-        <li class="active">Add</li>
+        <li><a href="/admin"><i class="fa fa-dashboard"></i> แผงควบคุม</a></li>
+        <li><a href="/admin/news"><i class="fa fa-dashboard"></i>ข้อมูลข่าวสาร</a></li>
+        <li class="active">เพิ่มรายการ</li>
       </ol>
     </section>
 
@@ -27,7 +27,7 @@
             <form class="form-horizontal" method="POST" action="{{route('admin.news.store')}}">
               <div class="box-body">
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Category</label>
+                  <label for="inputEmail3" class="col-sm-2 control-label">หมวดหมู่</label>
                   <div class="col-sm-4">
                     <select class="form-control" name="categories_id" required>
                         @foreach($categories as $category)
@@ -37,31 +37,31 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Title</label>
+                  <label for="inputEmail3" class="col-sm-2 control-label">หัวข้อ</label>
                   <div class="col-sm-6">
                     <input type="text" name="name" class="form-control" id="name" required>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Short Desc</label>
+                  <label for="inputEmail3" class="col-sm-2 control-label">รายละเอียดแบบย่อ</label></label>
                   <div class="col-sm-6">
                     <textarea class="form-control" name="short_desc" rows="3"></textarea>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Description</label>
+                  <label for="inputEmail3" class="col-sm-2 control-label">รายละเอียด</label>
                   <div class="col-sm-10">
                     <textarea id="editor1" name="editor1" rows="10" cols="80"></textarea>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Thumbnails</label>
+                  <label for="inputEmail3" class="col-sm-2 control-label">ภาพปก</label>
                   <div class="col-sm-3">
                     <input type="file" name="image">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Attachment</label>
+                  <label for="inputEmail3" class="col-sm-2 control-label">ไฟล์แนบ</label>
                   <div class="col-sm-3">
                     <input type="file" name="attachment">
                   </div>
@@ -76,7 +76,7 @@
                   <div class="col-sm-offset-2 col-sm-10">
                     <div class="checkbox">
                       <label>
-                        <input type="checkbox" name="active" value="1" checked> Active
+                        <input type="checkbox" name="active" value="1" checked> เปิดใช้งาน
                       </label>
                     </div>
                   </div>
@@ -84,8 +84,8 @@
               </div>
               <!-- /.box-body -->
               <div class="box-footer">
-                <button type="reset" class="btn btn-default">Cancel</button>
-                <button type="submit" class="btn btn-info pull-right">Save</button>
+                <button type="reset" class="btn btn-default">ยกเลิก</button>
+                <button type="submit" class="btn btn-info pull-right">บันทึก</button>
               </div>
               <!-- /.box-footer -->
             </form>

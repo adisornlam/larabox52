@@ -89,6 +89,7 @@ class UserController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         User::find($id)->update($request->all());
@@ -108,5 +109,22 @@ class UserController extends Controller
         User::find($id)->delete();
         return redirect()->route('backend.users.index')
                         ->with('success','User deleted successfully');
+    }
+
+    /**
+     * Update the avatar for the given user.
+     *
+     * @param  Request  $request
+     * @param  int  $id
+     * @return Response
+     */
+    public function updateAvatar(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+
+        Storage::put(
+            'avatars/'.$user->id,
+            file_get_contents($request->file('avatar')->getRealPath())
+        );
     }
 }

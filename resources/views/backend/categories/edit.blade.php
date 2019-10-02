@@ -5,12 +5,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Category Edit
+        แก้ไขหมวดหมู่
       </h1>
       <ol class="breadcrumb">
-        <li><a href="/admin"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li><a href="/admin/category"><i class="fa fa-dashboard"></i>Category</a></li>
-        <li class="active">Edit</li>
+        <li><a href="/admin"><i class="fa fa-dashboard"></i> แผงควบคุม</a></li>
+        <li><a href="/admin/category"><i class="fa fa-dashboard"></i>หมวดหมู่</a></li>
+        <li class="active">แก้ไข</li>
       </ol>
     </section>
 
@@ -29,7 +29,7 @@
               {{ method_field('PATCH') }}
               <div class="box-body">
                 <div class="form-group">
-                  <label for="name" class="col-sm-2 control-label">Title</label>
+                  <label for="name" class="col-sm-2 control-label">หัวข้อ</label>
                   <div class="col-sm-6">
                     <input type="text" name="name" class="form-control" id="name" value="{{ $category->name }}" required>
                     <span class="help-block text-danger">{{ $errors->first('name') }}</span>
@@ -38,8 +38,8 @@
               </div>
               <!-- /.box-body -->
               <div class="box-footer">
-                <button type="reset" class="btn btn-default">Cancel</button>
-                <button type="submit" class="btn btn-info pull-right">Save</button>
+                <button type="reset" class="btn btn-default">ยกเลิก</button>
+                <button type="submit" class="btn btn-info pull-right">บันทึก</button>
               </div>
               <!-- /.box-footer -->
             </form>
