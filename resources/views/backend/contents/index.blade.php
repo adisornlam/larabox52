@@ -39,13 +39,7 @@
                       <td>{{ ++$i }}</td>
                       <td>{{ $content->name}}</td>
                       <td>{{ $content->categories->name}}</td>
-                      <td>
-                        @if($content->active === 1)
-                        <span class="badge bg-green">เปิด</span>
-                        @else
-                        <span class="badge bg-yellow">ปิด</span>
-                        @endif
-                      </td>
+                    <td>{{$content->active}}</td>
                       <td>
                           <a class="btn btn-info" href="{{ route('admin.news.show',$content->id) }}">แสดง</a>
                           <a class="btn btn-primary" href="{{ route('admin.news.edit',$content->id) }}">แก้ไข</a>
