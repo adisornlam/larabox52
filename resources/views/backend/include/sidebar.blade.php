@@ -18,7 +18,7 @@
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu" data-widget="tree">
           <!-- Optionally, you can add icons to the links -->
-          <li><a href="#"><i class="fa fa-home"></i> <span>หน้าหลัก</span></a></li>
+          <li><a href="/admin"><i class="fa fa-home"></i> <span>หน้าหลัก</span></a></li>
           <li class="treeview">
             <a href="#"><i class="fa fa-list"></i> <span>เนื้อหา</span>
               <span class="pull-right-container">
